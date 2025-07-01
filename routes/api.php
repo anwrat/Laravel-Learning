@@ -22,5 +22,20 @@ Route::get('users',function(){
         ]];
         //API should return to json, so should convert to json. Also can change status codes with this method
         return response()->json($users,201);
-})
+});
+
+Route::post('users',function(Request $request){
+    //For only sending name
+    //return $request->name;
+    // return $request->all(); //For returning all key pairs from body
+    $request->validate([
+        'name' => 'required'
+    ]);
+    return $request->all(); 
+});
+
+Route::put('users/{id}',function(Request $request, $id){
+    return $id;
+});
+
 ?>
