@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 Route::get('users',[UserController::class,'index']);
+Route::post('users',[UserController::class,'store']);
 
 Route::post('users',function(Request $request){
     //For only sending name

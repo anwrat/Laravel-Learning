@@ -23,4 +23,13 @@ class UserController extends Controller
         //API should return to json, so should convert to json. Also can change status codes with this method
         return response()->json($users,201);
     }
+
+    public function store(Request $request){
+        $request->validate([
+            'name'=>['required','min:3'],
+            'email'=>'required_if:name,John',
+        ]);
+        $user = $request->all();
+        return response()->json($user,201);
+    }
 }
