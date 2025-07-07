@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStoreRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -24,11 +25,7 @@ class UserController extends Controller
         return response()->json($users,201);
     }
 
-    public function store(Request $request){
-        $request->validate([
-            'name'=>['required','min:3'],
-            'email'=>'required_if:name,John',
-        ]);
+    public function store(UserStoreRequest $request){
         $user = $request->all();
         return response()->json($user,201);
     }
