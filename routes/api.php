@@ -26,6 +26,9 @@ Route::post('users',[UserController::class,'store']);
 //Update Endpoint
 Route::put('users/{id}',[UserController::class,'update']);
 
+//Delete Endpoint
+Route::delete('users/{id}',[UserController::class,'destroy']);
+
 Route::get('tasks',[TaskController::class,'index']);
 
 ?>
