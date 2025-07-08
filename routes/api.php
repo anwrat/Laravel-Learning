@@ -22,9 +22,9 @@ Route::post('users',[UserController::class,'store']);
 //     return $request->all(); 
 // });
 
-Route::put('users/{id}',function(Request $request, $id){
-    return $id;
-});
+
+//Update Endpoint
+Route::put('users/{id}',[UserController::class,'update']);
 
 Route::get('tasks',[TaskController::class,'index']);
 
