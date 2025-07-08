@@ -8,7 +8,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         // $users = [
         //     [
         //         'id'=>1,
@@ -25,7 +25,8 @@ class UserController extends Controller
         
         
         //Using User models from app/Models/Users
-        $users = User::get()->all();
+        // $users = User::get()->all();
+        $users = User::where('name',$request->name)->get();
         //API should return to json, so should convert to json. Also can change status codes with this method
         return response()->json($users,201);
     }
