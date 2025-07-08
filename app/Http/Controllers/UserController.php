@@ -28,7 +28,11 @@ class UserController extends Controller
         // $users = User::get()->all();
         $users = User::when($request->name,function($query,$name){
             return $query->where('name',$name);
-        })->get();
+        })
+        ->when($request->email,function($query,$email){
+            return $query->orWhere('email',$email);
+        })
+        ->get();
         //API should return to json, so should convert to json. Also can change status codes with this method
         return response()->json($users,201);
     }
