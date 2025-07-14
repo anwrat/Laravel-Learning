@@ -33,11 +33,11 @@ class ProductController extends Controller
     //     return response()->json($user,200);
     // }
 
-    // public function update(Request $request, $id){
-    //     $user = User::findOrFail($id);
-    //     $user->update($request->all());
-    //     return response()->json($user,200);
-    // }
+    public function update(Request $request, $id){
+        $user = Product::findOrFail($id);
+        $user->update($request->all());
+        return response()->json($user,200);
+    }
 
     public function destroy($id){
         $user = Product::findOrFail($id);
