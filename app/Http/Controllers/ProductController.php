@@ -9,15 +9,15 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(Request $request){
-        $users = Product::when($request->name,function($query,$name){
-            return $query->where('name',$name);
+        $products = Product::when($request->title,function($query,$title){
+            return $query->where('title',$title);
         })
-        ->when($request->email,function($query,$email){
-            return $query->orWhere('email',$email);
+        ->when($request->description,function($query,$description){
+            return $query->orWhere('email',$description);
         })
         ->get();
         //API should return to json, so should convert to json. Also can change status codes with this method
-        return response()->json($users,201);
+        return response()->json($products,201);
     }
 
     public function store(ProductStoreRequest $request){

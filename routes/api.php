@@ -42,5 +42,6 @@ Route:: get('users/{user}',[UserController::class,'show']);
 Route::post('products',[ProductController::class,'store']);
 Route::delete('products/{id}',[ProductController::class,'destroy']);
 Route::put('products/{id}',[ProductController::class,'update']);
+Route::get('products',[ProductController::class,'index']);
 
 ?>
