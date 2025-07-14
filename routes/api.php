@@ -31,4 +31,7 @@ Route::delete('users/{id}',[UserController::class,'destroy']);
 
 Route::get('tasks',[TaskController::class,'index']);
 
+// Route:: get('users/{id}',[UserController::class,'show']);
+Route:: get('users/{user}',[UserController::class,'show']);
+
 ?>
